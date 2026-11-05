@@ -51,13 +51,13 @@ unzip /tmp/catalogue.zip &>>"$LOGFILE"
 VALIDATE $? "Unzipping artifact"
 npm install &>>"$LOGFILE"
 VALIDATE $? "Installing dependencies"
-cp /root/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>>"$LOGFILE"
+cp /root/roboshop-shell-tf/catalogue.service /etc/systemd/system/catalogue.service &>>"$LOGFILE"
 VALIDATE $? "Copy Catalogue service"
 systemctl daemon-reload
 systemctl enable catalogue
 systemctl start catalogue
 systemctl status catalogue &>>"$LOGFILE"
-cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongodb-org-7.0.repo &>>"$LOGFILE"
+cp /root/roboshop-shell-tf/mongo.repo /etc/yum.repos.d/mongodb-org-7.0.repo &>>"$LOGFILE"
 VALIDATE $? "Copying mongodb repos"
 yum install mongodb-mongosh -y &>>"$LOGFILE"
 VALIDATE $? "Installing mongosh"
