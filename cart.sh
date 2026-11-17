@@ -51,13 +51,13 @@ unzip /tmp/cart.zip &>>"$LOGFILE"
 VALIDATE $? "Unzipping artifact"    
 npm install &>>"$LOGFILE"
 VALIDATE $? "Installing dependencies"
-cp /root/roboshop-shell/cart.service /etc/systemd/system/cart.service &>>"$LOGFILE"
+cp /root/roboshop-shell-tf/cart.service /etc/systemd/system/cart.service &>>"$LOGFILE"
 VALIDATE $? "Copy cart service"
 systemctl daemon-reload
 systemctl enable cart
 systemctl start cart
 systemctl status cart &>>"$LOGFILE"
-cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongodb-org-7.0.repo &>>"$LOGFILE"
+cp /root/roboshop-shell-tf/mongo.repo /etc/yum.repos.d/mongodb-org-7.0.repo &>>"$LOGFILE"
 VALIDATE $? "Copying mongodb repos"
 yum install mongodb-mongosh -y &>>"$LOGFILE"
 VALIDATE $? "Installing mongosh"

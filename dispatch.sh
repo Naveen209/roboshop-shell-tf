@@ -47,7 +47,7 @@ go mod init dispatch &>>"$LOGFILE"
 go get &>>"$LOGFILE"
 go build &>>"$LOGFILE"
 VALIDATE $? "install dependencies"
-cp /root/roboshop-shell/dispatch.service /etc/systemd/system/dispatch.service &>>"$LOGFILE"
+cp /root/roboshop-shell-tf/dispatch.service /etc/systemd/system/dispatch.service &>>"$LOGFILE"
 VALIDATE $? "Copy dispatch service"
 systemctl daemon-reload &>>"$LOGFILE"
 systemctl enable dispatch 

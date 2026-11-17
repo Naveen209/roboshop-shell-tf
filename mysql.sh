@@ -24,7 +24,7 @@ then
 fi
 dnf module disable mysql -y &>>"$LOGFILE"
 VALIDATE $? "Disable mysql"
-cp /root/roboshop-shell/mysql.repo /etc/yum.repos.d/mysql.repo &>>"$LOGFILE"
+cp /root/roboshop-shell-tf/mysql.repo /etc/yum.repos.d/mysql.repo &>>"$LOGFILE"
 VALIDATE $? "Copying mysql repos"
 dnf install mysql-community-server -y &>>"$LOGFILE"
 VALIDATE $? "Installing mysql"

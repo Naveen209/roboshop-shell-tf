@@ -52,13 +52,13 @@ unzip /tmp/user.zip &>>"$LOGFILE"
 VALIDATE $? "Unzipping artifact"
 npm install &>>"$LOGFILE"
 VALIDATE $? "Installing dependencies"
-cp /root/roboshop-shell/user.service /etc/systemd/system/user.service &>>"$LOGFILE"
+cp /root/roboshop-shell-tf/user.service /etc/systemd/system/user.service &>>"$LOGFILE"
 VALIDATE $? "Copy user service"
 systemctl daemon-reload
 systemctl enable user
 systemctl start user
 systemctl status user &>>"$LOGFILE"
-cp /root/roboshop-shell/mongo.repo /etc/yum.repos.d/mongodb-org-7.0.repo &>>"$LOGFILE"
+cp /root/roboshop-shell-tf/mongo.repo /etc/yum.repos.d/mongodb-org-7.0.repo &>>"$LOGFILE"
 VALIDATE $? "Copying mongodb repos"
 yum install mongodb-mongosh -y &>>"$LOGFILE"
 VALIDATE $? "Installing mongosh"
