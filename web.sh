@@ -42,5 +42,7 @@ systemctl restart nginx &>>"$LOGFILE"
 VALIDATE $? "restart nginx"
 systemctl status nginx &>>"$LOGFILE"
 VALIDATE $? "status nginx"
+setsebool -P httpd_can_network_connect 1 &>>"$LOGFILE"
+VALIDATE $? "Configuring SELinux network permissions"
 
 
